@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- This app does not track users in any way -->
+    <key>NSPrivacyTracking</key>
+    <false/>
+
+    <!-- No tracking domains -->
+    <key>NSPrivacyTrackingDomains</key>
+    <array/>
+
+    <!-- No user data is collected or transmitted -->
+    <key>NSPrivacyCollectedDataTypes</key>
+    <array/>
+
+    <!-- Required Reason APIs used by this app -->
+    <key>NSPrivacyAccessedAPITypes</key>
+    <array>
+        <!--
+            UserDefaults — used to persist:
+              • Home folder security-scoped bookmark (MacClean.homeFolderBookmark)
+              • System data folder bookmark (MacClean.systemDataBookmark)
+              • Full Disk Access confirmation flag (MacClean.fullDiskAccessConfirmed)
+              • Selected language preference (MacClean.language)
+              • First-launch onboarding flag (MacClean.onboardingComplete)
+            Reason code CA92.1: Accessing info from the same app that wrote it.
+        -->
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key>
+            <array>
+                <string>CA92.1</string>
+            </array>
+        </dict>
+
+        <!--
+            File timestamp APIs — used when scanning for large/old files.
+            DiskScanner reads contentModificationDate to filter files older
+            than 14 days in the largeFiles category.
+            Reason code C617.1: Display to the user.
+        -->
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key>
+            <array>
+                <string>C617.1</string>
+            </array>
+        </dict>
+
+        <!--
+            Disk space APIs — used to display available / total disk capacity
+            via volumeTotalCapacityKey and volumeAvailableCapacityKey.
+            Reason code E174.1: Display to the user.
+        -->
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPICategoryDiskSpace</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key>
+            <array>
+                <string>E174.1</string>
+            </array>
+        </dict>
+    </array>
+</dict>
+</plist>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MacClean — Mac storage cleaner. Support, privacy policy, and contact." />
+  <title>MacClean Support</title>
+  <style>
+    :root {
+      --bg: #0d0d0f;
+      --surface: #1c1c1e;
+      --border: #2c2c2e;
+      --accent: #0a84ff;
+      --accent-hover: #409cff;
+      --text: #f2f2f7;
+      --muted: #8e8e93;
+      --green: #30d158;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 72px 24px 48px;
+      text-align: center;
+    }
+    .app-icon {
+      width: 100px; height: 100px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #00c2e0, #0a84ff, #5e5ce6);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 48px;
+      margin-bottom: 24px;
+      box-shadow: 0 12px 40px rgba(10,132,255,0.35);
+    }
+    header h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: -0.5px; }
+    header p  { color: var(--muted); margin-top: 8px; font-size: 1.1rem; }
+
+    /* ── Nav tabs ── */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 24px 48px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      transition: all 0.18s;
+    }
+    nav a:hover, nav a.active {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: rgba(10,132,255,0.10);
+    }
+
+    /* ── Main layout ── */
+    main {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 20px;
+    }
+    .card h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card h2 .icon {
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .card p, .card li { color: var(--muted); font-size: 0.97rem; }
+    .card ul { padding-left: 20px; }
+    .card ul li { margin-bottom: 6px; }
+
+    /* ── FAQ accordion ── */
+    details { margin-bottom: 12px; }
+    details summary {
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.97rem;
+      padding: 14px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.15s;
+    }
+    details summary:hover { background: #222224; }
+    details summary::after { content: "+"; font-size: 1.2rem; color: var(--accent); }
+    details[open] summary::after { content: "−"; }
+    details[open] summary {
+      border-radius: 10px 10px 0 0;
+      border-bottom-color: transparent;
+    }
+    .faq-body {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      padding: 14px 18px 16px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* ── Contact button ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.97rem;
+      padding: 12px 24px;
+      border-radius: 10px;
+      transition: background 0.18s;
+      margin-top: 16px;
+    }
+    .btn:hover { background: var(--accent-hover); }
+
+    /* ── Privacy / Terms sections (hidden by default) ── */
+    .section { display: none; }
+    .section.active { display: block; }
+    #support.active, #privacy.active, #terms.active { display: block; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      margin-top: 20px;
+    }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="app-icon">✨</div>
+  <h1>MacClean</h1>
+  <p>Storage assistant for macOS</p>
+</header>
+
+<nav>
+  <a href="#support" class="active" onclick="show('support',this)">Support</a>
+  <a href="#privacy" onclick="show('privacy',this)">Privacy Policy</a>
+  <a href="#terms"   onclick="show('terms',this)">Terms of Use</a>
+</nav>
+
+<main>
+
+  <!-- ══════════════ SUPPORT ══════════════ -->
+  <div id="support" class="section active">
+
+    <div class="card">
+      <h2><span class="icon" style="background:#1a3a5c;">🔍</span>How MacClean works</h2>
+      <p>MacClean scans the home folder you select and shows you cleanable files — caches, logs, Xcode build artifacts, large old files, and more. Nothing is deleted until you review and confirm.</p>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon" style="background:#1a3a2a;">🔒</span>Permissions</h2>
+      <ul>
+        <li><strong>Home folder access</strong> — you choose your home folder once through the macOS file picker. Access is preserved across launches via a security-scoped bookmark.</li>
+        <li><strong>Full Disk Access (non-App Store build)</strong> — needed only to inspect System Data areas like Application Support and Developer folders.</li>
+        <li>MacClean uses no network, no analytics, and no third-party SDKs.</li>
+      </ul>
+    </div>
+
+    <h2 style="font-size:1rem; font-weight:600; margin-bottom:14px; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px;">Frequently Asked Questions</h2>
+
+    <details>
+      <summary>Why does MacClean need access to my home folder?</summary>
+      <div class="faq-body">
+        MacClean runs inside the macOS App Sandbox, which means it can only access folders you explicitly grant access to. You choose your home folder once — MacClean never accesses any other location.
+      </div>
+    </details>
+
+    <details>
+      <summary>Is it safe to clean Xcode build artifacts?</summary>
+      <div class="faq-body">
+        Yes. MacClean only removes <strong>DerivedData</strong>, CoreSimulator caches, and the Xcode cache folder. Your source code, projects, Git repositories, and Xcode Archives are never touched. Xcode will rebuild the removed artifacts on the next build.
+      </div>
+    </details>
+
+    <details>
+      <summary>Will cleaning caches slow down my apps?</summary>
+      <div class="faq-body">
+        The first launch of each app may be slightly slower after its cache is cleared, as the app rebuilds it. This is normal and expected — caches are designed to be regenerated.
+      </div>
+    </details>
+
+    <details>
+      <summary>Where do deleted files go?</summary>
+      <div class="faq-body">
+        Installer files and large personal files are moved to the <strong>Trash</strong> — you can recover them anytime before emptying the Trash. Caches, logs, and Xcode artifacts are permanently deleted after your explicit confirmation.
+      </div>
+    </details>
+
+    <details>
+      <summary>How do I revoke MacClean's folder access?</summary>
+      <div class="faq-body">
+        Open MacClean → click <strong>Privacy</strong> in the bottom-left sidebar card → tap <strong>Revoke access</strong>. The bookmark is deleted immediately and the app can no longer access your folders until you grant access again.
+      </div>
+    </details>
+
+    <details>
+      <summary>The app shows "System Data" is very large — why?</summary>
+      <div class="faq-body">
+        macOS includes protected system files, APFS snapshots, and virtual memory in its "System Data" figure. MacClean only shows the app-accessible portion (Application Support, Developer, Containers, Group Containers). These numbers will not match exactly.
+      </div>
+    </details>
+
+    <details>
+      <summary>Does MacClean read my messages or documents?</summary>
+      <div class="faq-body">
+        No. MacClean only reads file names, sizes, and modification dates. It does not open, read, or transmit the contents of any file. WhatsApp chat matching reads only the contact name and session type from the local SQLite database — message contents are never accessed.
+      </div>
+    </details>
+
+    <div class="card" style="margin-top:28px;">
+      <h2><span class="icon" style="background:#2a1a3a;">✉️</span>Contact support</h2>
+      <p>Have a question not covered above? Send an e-mail and we'll get back to you.</p>
+      <a class="btn" href="mailto:yusahmedia@gmail.com">
+        ✉️&nbsp; yusahmedia@gmail.com
+      </a>
+    </div>
+
+  </div><!-- /support -->
+
+  <!-- ══════════════ PRIVACY ══════════════ -->
+  <div id="privacy" class="section">
+    <div class="card">
+      <h2><span class="icon" style="background:#1a2a3a;">🛡️</span>Privacy Policy</h2>
+      <p style="margin-bottom:12px;"><em>Last updated: September 17, 2026</em></p>
+
+      <p style="margin-bottom:12px;">MacClean is a local macOS application that shows storage usage in the folders you select and deletes only the items you explicitly confirm.</p>
+
+      <h3 style="font-size:0.95rem; font-weight:600; color:var(--text); margin:16px 0 6px;">Data collected and shared</h3>
+      <p>MacClean does not send personal data, file contents, chat messages, or usage information to any server. The app contains no advertising, analytics SDKs, or third-party tracking tools.</p>
+
+      <h3 style="font-size:0.95rem; font-weight:600; color:var(--text); margin:16px 0 6px;">Local file access</h3>
+      <p>The app only accesses folders you select through the macOS file picker. This access is restricted by the App Sandbox. To retain access across launches, the app stores a macOS security-scoped bookmark in the app's local preferences. This bookmark does not contain file contents or directory listings.</p>
+
+      <h3 style="font-size:0.95rem; font-weight:600; color:var(--text); margin:16px 0 6px;">Deletion</h3>
+      <p>MacClean never deletes files automatically. Every deletion first shows you what will be affected and requires your explicit confirmation. Installer files and large personal files are moved to the Trash; caches, logs, and Xcode build artifacts are permanently deleted only after a separate confirmation.</p>
+
+      <h3 style="font-size:0.95rem; font-weight:600; color:var(--text); margin:16px 0 6px;">Revoking access</h3>
+      <p>You can revoke folder access at any time from <strong>Privacy › Revoke access</strong> inside the app.</p>
+
+      <h3 style="font-size:0.95rem; font-weight:600; color:var(--text); margin:16px 0 6px;">Contact</h3>
+      <p>Developer: MacClean<br>
+      Support e-mail: <a href="mailto:yusahmedia@gmail.com" style="color:var(--accent);">yusahmedia@gmail.com</a></p>
+    </div>
+  </div><!-- /privacy -->
+
+  <!-- ══════════════ TERMS ══════════════ -->
+  <div id="terms" class="section">
+    <div class="card">
+      <h2><span class="icon" style="background:#1a3a1a;">📋</span>Terms of Use</h2>
+      <p style="margin-bottom:12px;">MacClean is distributed on the Mac App Store and is subject to Apple's standard Licensed Application End User License Agreement (EULA):</p>
+      <a class="btn" href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">
+        📄&nbsp; View Apple Standard EULA
+      </a>
+
+      <h3 style="font-size:0.95rem; font-weight:600; color:var(--text); margin:24px 0 6px;">Additional terms</h3>
+      <ul style="margin-top:8px;">
+        <li>MacClean is provided "as is" without warranty of any kind.</li>
+        <li>The developer is not responsible for data loss resulting from use of the app. Always review what will be deleted before confirming any cleanup operation.</li>
+        <li>The app does not collect or transmit any personal data (see Privacy Policy).</li>
+      </ul>
+
+      <h3 style="font-size:0.95rem; font-weight:600; color:var(--text); margin:16px 0 6px;">Contact</h3>
+      <p>Support e-mail: <a href="mailto:yusahmedia@gmail.com" style="color:var(--accent);">yusahmedia@gmail.com</a></p>
+    </div>
+  </div><!-- /terms -->
+
+</main>
+
+<footer>
+  <p>© 2026 MacClean &nbsp;·&nbsp; <a href="#privacy" onclick="show('privacy',null)">Privacy Policy</a> &nbsp;·&nbsp; <a href="#terms" onclick="show('terms',null)">Terms of Use</a></p>
+</footer>
+
+<script>
+  function show(id, link) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if (link) link.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Handle direct hash navigation on load
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.replace('#','');
+    if (['support','privacy','terms'].includes(hash)) {
+      const link = document.querySelector('nav a[href="#'+hash+'"]');
+      show(hash, link);
+    }
+  });
+</script>
+
+</body>
+</html>

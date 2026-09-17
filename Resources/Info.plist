@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Bundle identity -->
+    <key>CFBundleIdentifier</key>
+    <string>com.yunussahin.macclean</string>
+    <key>CFBundleName</key>
+    <string>MacClean</string>
+    <key>CFBundleDisplayName</key>
+    <string>MacClean</string>
+    <key>CFBundleExecutable</key>
+    <string>MacClean</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+
+    <!-- Version — overridden at archive time by the build script -->
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+
+    <!-- Icon -->
+    <key>CFBundleIconFile</key>
+    <string>MacClean</string>
+
+    <!-- Platform & deployment -->
+    <key>LSMinimumSystemVersion</key>
+    <string>14.0</string>
+    <key>CFBundleSupportedPlatforms</key>
+    <array>
+        <string>MacOSX</string>
+    </array>
+
+    <!-- App category (shown in Finder "Get Info" and App Store) -->
+    <key>LSApplicationCategoryType</key>
+    <string>public.app-category.utilities</string>
+
+    <!-- Localization — English is the fallback; the app ships TR/EN/RU at runtime -->
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en</string>
+    <key>CFBundleLocalizations</key>
+    <array>
+        <string>en</string>
+        <string>tr</string>
+        <string>ru</string>
+    </array>
+
+    <!-- SwiftUI / AppKit entry point -->
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+
+    <!-- High-resolution display support -->
+    <key>NSHighResolutionCapable</key>
+    <true/>
+
+    <!-- Suppress the automatic tabbing interface (single-window app) -->
+    <key>NSWindowTabbingEnabled</key>
+    <false/>
+
+    <!-- Copyright -->
+    <key>NSHumanReadableCopyright</key>
+    <string>© 2026 MacClean</string>
+
+    <!--
+        Encryption declaration — REQUIRED by App Store Connect.
+        The app uses no custom or non-exempt encryption.
+        Only OS-provided TLS and security-scoped bookmark cryptography are used.
+    -->
+    <key>ITSAppUsesNonExemptEncryption</key>
+    <false/>
+
+    <!--
+        File-access usage description — explains why the app requests
+        user-selected read/write access (sandbox entitlement).
+    -->
+    <key>NSAppDataUsageDescription</key>
+    <string>MacClean only accesses folders you explicitly select in order to analyse storage usage and clean files with your confirmation.</string>
+</dict>
+</plist>

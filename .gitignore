@@ -1,0 +1,4 @@
+.build/
+MacClean.app/
+.DS_Store
+*.png~
