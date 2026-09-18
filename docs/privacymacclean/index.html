@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MacClean Privacy Policy" />
+  <title>MacClean — Privacy Policy</title>
+  <style>
+    :root {
+      --bg: #0d0d0f; --surface: #1c1c1e; --border: #2c2c2e;
+      --accent: #0a84ff; --text: #f2f2f7; --muted: #8e8e93;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+      line-height: 1.7; min-height: 100vh;
+    }
+    header {
+      display: flex; flex-direction: column; align-items: center;
+      padding: 56px 24px 36px; text-align: center;
+    }
+    .app-icon {
+      width: 80px; height: 80px; border-radius: 20px;
+      background: linear-gradient(135deg, #00c2e0, #0a84ff, #5e5ce6);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px; margin-bottom: 20px;
+      box-shadow: 0 8px 30px rgba(10,132,255,0.35);
+    }
+    header h1 { font-size: 2rem; font-weight: 700; }
+    header p  { color: var(--muted); margin-top: 6px; }
+    nav {
+      display: flex; justify-content: center; gap: 8px;
+      padding: 0 24px 40px; flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--muted); text-decoration: none; font-size: 0.9rem;
+      font-weight: 500; padding: 7px 18px; border-radius: 99px;
+      border: 1px solid var(--border); transition: all 0.18s;
+    }
+    nav a:hover { color: var(--accent); border-color: var(--accent); background: rgba(10,132,255,0.10); }
+    nav a.active { color: var(--accent); border-color: var(--accent); background: rgba(10,132,255,0.10); }
+    main { max-width: 700px; margin: 0 auto; padding: 0 24px 80px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 32px 36px; margin-bottom: 20px;
+    }
+    h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 20px; }
+    h3 { font-size: 1rem; font-weight: 600; color: var(--text); margin: 22px 0 8px; }
+    p  { color: var(--muted); font-size: 0.97rem; margin-bottom: 4px; }
+    .updated { color: var(--muted); font-size: 0.85rem; margin-bottom: 18px; font-style: italic; }
+    a.link { color: var(--accent); text-decoration: none; }
+    a.link:hover { text-decoration: underline; }
+    footer {
+      text-align: center; color: var(--muted); font-size: 0.82rem;
+      padding: 28px 24px; border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="app-icon">✨</div>
+  <h1>MacClean</h1>
+  <p>Storage assistant for macOS</p>
+</header>
+<nav>
+  <a href="../">Support</a>
+  <a href="../privacy/" class="active">Privacy Policy</a>
+  <a href="../terms/">Terms of Use</a>
+</nav>
+<main>
+  <div class="card">
+    <h2>🛡️ Privacy Policy</h2>
+    <p class="updated">Last updated: September 17, 2026</p>
+
+    <p>MacClean is a local macOS application that shows storage usage in the folders you select and deletes only the items you explicitly confirm.</p>
+
+    <h3>Data collected and shared</h3>
+    <p>MacClean does not send personal data, file contents, chat messages, or usage information to any server. The app contains no advertising, analytics SDKs, or third-party tracking tools.</p>
+
+    <h3>Local file access</h3>
+    <p>The app only accesses folders you select through the macOS file picker. This access is restricted by the App Sandbox. To retain access across launches, the app stores a macOS security-scoped bookmark in the app's local preferences. This bookmark does not contain file contents or directory listings.</p>
+
+    <h3>Deletion</h3>
+    <p>MacClean never deletes files automatically. Every deletion first shows you what will be affected and requires your explicit confirmation. Installer files and large personal files are moved to the Trash; caches, logs, and Xcode build artifacts are permanently deleted only after a separate confirmation.</p>
+
+    <h3>Revoking access</h3>
+    <p>You can revoke folder access at any time from <strong>Privacy › Revoke access</strong> inside the app.</p>
+
+    <h3>Contact</h3>
+    <p>Developer: MacClean</p>
+    <p>Support e-mail: <a class="link" href="mailto:yusahmedia@gmail.com">yusahmedia@gmail.com</a></p>
+  </div>
+</main>
+<footer>
+  <p>© 2026 MacClean &nbsp;·&nbsp;
+    <a href="../privacy/">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="../terms/">Terms of Use</a>
+  </p>
+</footer>
+</body>
+</html>

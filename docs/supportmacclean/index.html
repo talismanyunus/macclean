@@ -154,11 +154,6 @@
     }
     .btn:hover { background: var(--accent-hover); }
 
-    /* ── Privacy / Terms sections (hidden by default) ── */
-    .section { display: none; }
-    .section.active { display: block; }
-    #support.active, #privacy.active, #terms.active { display: block; }
-
     /* ── Footer ── */
     footer {
       text-align: center;
@@ -180,9 +175,9 @@
 </header>
 
 <nav>
-  <a href="#support" class="active" onclick="show('support',this)">Support</a>
-  <a href="#privacy" onclick="show('privacy',this)">Privacy Policy</a>
-  <a href="#terms"   onclick="show('terms',this)">Terms of Use</a>
+  <a href="./" class="active" onclick="show('support',this)">Support</a>
+  <a href="./privacy/">Privacy Policy</a>
+  <a href="./terms/">Terms of Use</a>
 </nav>
 
 <main>
@@ -265,77 +260,11 @@
 
   </div><!-- /support -->
 
-  <!-- ══════════════ PRIVACY ══════════════ -->
-  <div id="privacy" class="section">
-    <div class="card">
-      <h2><span class="icon" style="background:#1a2a3a;">🛡️</span>Privacy Policy</h2>
-      <p style="margin-bottom:12px;"><em>Last updated: September 17, 2026</em></p>
-
-      <p style="margin-bottom:12px;">MacClean is a local macOS application that shows storage usage in the folders you select and deletes only the items you explicitly confirm.</p>
-
-      <h3 style="font-size:0.95rem; font-weight:600; color:var(--text); margin:16px 0 6px;">Data collected and shared</h3>
-      <p>MacClean does not send personal data, file contents, chat messages, or usage information to any server. The app contains no advertising, analytics SDKs, or third-party tracking tools.</p>
-
-      <h3 style="font-size:0.95rem; font-weight:600; color:var(--text); margin:16px 0 6px;">Local file access</h3>
-      <p>The app only accesses folders you select through the macOS file picker. This access is restricted by the App Sandbox. To retain access across launches, the app stores a macOS security-scoped bookmark in the app's local preferences. This bookmark does not contain file contents or directory listings.</p>
-
-      <h3 style="font-size:0.95rem; font-weight:600; color:var(--text); margin:16px 0 6px;">Deletion</h3>
-      <p>MacClean never deletes files automatically. Every deletion first shows you what will be affected and requires your explicit confirmation. Installer files and large personal files are moved to the Trash; caches, logs, and Xcode build artifacts are permanently deleted only after a separate confirmation.</p>
-
-      <h3 style="font-size:0.95rem; font-weight:600; color:var(--text); margin:16px 0 6px;">Revoking access</h3>
-      <p>You can revoke folder access at any time from <strong>Privacy › Revoke access</strong> inside the app.</p>
-
-      <h3 style="font-size:0.95rem; font-weight:600; color:var(--text); margin:16px 0 6px;">Contact</h3>
-      <p>Developer: MacClean<br>
-      Support e-mail: <a href="mailto:yusahmedia@gmail.com" style="color:var(--accent);">yusahmedia@gmail.com</a></p>
-    </div>
-  </div><!-- /privacy -->
-
-  <!-- ══════════════ TERMS ══════════════ -->
-  <div id="terms" class="section">
-    <div class="card">
-      <h2><span class="icon" style="background:#1a3a1a;">📋</span>Terms of Use</h2>
-      <p style="margin-bottom:12px;">MacClean is distributed on the Mac App Store and is subject to Apple's standard Licensed Application End User License Agreement (EULA):</p>
-      <a class="btn" href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">
-        📄&nbsp; View Apple Standard EULA
-      </a>
-
-      <h3 style="font-size:0.95rem; font-weight:600; color:var(--text); margin:24px 0 6px;">Additional terms</h3>
-      <ul style="margin-top:8px;">
-        <li>MacClean is provided "as is" without warranty of any kind.</li>
-        <li>The developer is not responsible for data loss resulting from use of the app. Always review what will be deleted before confirming any cleanup operation.</li>
-        <li>The app does not collect or transmit any personal data (see Privacy Policy).</li>
-      </ul>
-
-      <h3 style="font-size:0.95rem; font-weight:600; color:var(--text); margin:16px 0 6px;">Contact</h3>
-      <p>Support e-mail: <a href="mailto:yusahmedia@gmail.com" style="color:var(--accent);">yusahmedia@gmail.com</a></p>
-    </div>
-  </div><!-- /terms -->
-
 </main>
 
 <footer>
-  <p>© 2026 MacClean &nbsp;·&nbsp; <a href="#privacy" onclick="show('privacy',null)">Privacy Policy</a> &nbsp;·&nbsp; <a href="#terms" onclick="show('terms',null)">Terms of Use</a></p>
+  <p>© 2026 MacClean &nbsp;·&nbsp; <a href="./privacy/">Privacy Policy</a> &nbsp;·&nbsp; <a href="./terms/">Terms of Use</a></p>
 </footer>
-
-<script>
-  function show(id, link) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    if (link) link.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  // Handle direct hash navigation on load
-  window.addEventListener('DOMContentLoaded', () => {
-    const hash = window.location.hash.replace('#','');
-    if (['support','privacy','terms'].includes(hash)) {
-      const link = document.querySelector('nav a[href="#'+hash+'"]');
-      show(hash, link);
-    }
-  });
-</script>
 
 </body>
 </html>
